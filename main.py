@@ -10,8 +10,10 @@ from fastapi_cache.coder import JsonCoder
 from typing import List
 
 host = os.environ['HOST']
+redis_host = os.environ['REDIS_HOST']
 user = os.environ['USER']
 password = os.environ['PASSWORD']
+redis_password = os.environ['REDIS_PASSWORD']
 database = os.environ['DATABASE']
 
 engine = create_engine('mysql+pymysql://{}:{}@{}/{}'.format(user, password, host, database))
@@ -144,5 +146,5 @@ async def data(id: int = Path(..., title="Country ID", ge=1, le=43),
 
 @app.on_event("startup")
 async def startup():
-    redis = aioredis.from_url("redis://{}".format(host), password=password, encoding="utf8", decode_responses=True)
+    redis = aioredis.from_url("redis://{}".format(redis_host), password=redis_password, encoding="utf8", decode_responses=True)
     FastAPICache.init(RedisBackend(redis), prefix="fastapi-cache")
