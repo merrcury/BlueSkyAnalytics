@@ -1,12 +1,15 @@
 aioredis @ git+git://github.com/aio-libs/aioredis-py.git@c65e2e7fdecca4d0de9770787605396d6f67c713
 asgiref==3.4.1
 async-timeout==3.0.1
+cffi==1.14.6
 click==8.0.1
+cryptography==3.4.7
 fastapi==0.67.0
 fastapi-cache2==0.1.6
 greenlet==1.1.0
 h11==0.12.0
 hiredis==2.0.0
+pycparser==2.20
 pydantic==1.8.2
 PyMySQL==1.0.2
 python-dateutil==2.8.2
